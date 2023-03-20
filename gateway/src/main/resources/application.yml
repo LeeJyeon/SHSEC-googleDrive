@@ -1,0 +1,90 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: Drive
+          uri: http://localhost:8081
+          predicates:
+            - Path=/files/**, 
+        - id: Indexer
+          uri: http://localhost:8082
+          predicates:
+            - Path=/indices/**, 
+        - id: VideoProcessing
+          uri: http://localhost:8083
+          predicates:
+            - Path=/videos/**, 
+        - id: Notification
+          uri: http://localhost:8084
+          predicates:
+            - Path=, 
+        - id: Dashboard
+          uri: http://localhost:8085
+          predicates:
+            - Path=, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: Drive
+          uri: http://drive:8080
+          predicates:
+            - Path=/files/**, 
+        - id: Indexer
+          uri: http://indexer:8080
+          predicates:
+            - Path=/indices/**, 
+        - id: VideoProcessing
+          uri: http://videoProcessing:8080
+          predicates:
+            - Path=/videos/**, 
+        - id: Notification
+          uri: http://notification:8080
+          predicates:
+            - Path=, 
+        - id: Dashboard
+          uri: http://dashboard:8080
+          predicates:
+            - Path=, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
