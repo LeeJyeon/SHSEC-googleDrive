@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>googledrive</groupId>
-	<artifactId>Drive</artifactId>
+	<artifactId>drive</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Drive</name>
 	<description>Demo project for Spring Boot</description>

@@ -2,6 +2,8 @@ package googledrive.domain;
 
 import googledrive.IndexerApplication;
 import googledrive.domain.FileIndexed;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -35,6 +37,8 @@ public class Index {
     }
 
     public static void indexFile(FileUploaded fileUploaded) {
+        Index index = new Index();
+        index.setKeywords(Arrays.asList(fileUploaded.getName().split(" ")));
         /** Example 1:  new item 
         Index index = new Index();
         repository().save(index);

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>googledrive</groupId>
-	<artifactId>Notification</artifactId>
+	<artifactId>indexer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Notification</name>
+	<name>Indexer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
